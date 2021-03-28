@@ -12,10 +12,10 @@ services:
       context: ./database
     container_name: database
     environment:
-      - MYSQL_DATABASE=football_api
-      - MYSQL_ROOT_PASSWORD=docker
-      - MYSQL_USER=pelachile
-      - MYSQL_PASSWORD=secret
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_ROOT_PASSWORD=${ROOT_PASS}
+      - MYSQL_USER=${USER}
+      - MYSQL_PASSWORD=${MYSQL_PASS}
   phpmyadmin:
     image: phpmyadmin
     restart: always
