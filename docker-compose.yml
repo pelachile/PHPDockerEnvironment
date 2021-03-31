@@ -6,7 +6,8 @@ services:
     container_name: app
     working_dir: /var/www/html
     volumes:
-      - ../src:/var/www/html/public
+      - ../src/public:/var/www/html/public
+      - ../src:/var/www
   database:
     build:
       context: ./database
@@ -30,7 +31,8 @@ services:
       context: ./nginx
     container_name: nginx
     volumes:
-      - ../src:/var/www/html/public
+      - ../src/public:/var/www/html/public
+      - ../src:/var/www
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/sites/:/etc/nginx/sites-available
       - ./nginx/conf.d/:/etc/nginx/conf.d
